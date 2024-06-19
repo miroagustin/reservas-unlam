@@ -7,6 +7,9 @@
 import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/card"
 import { ResponsivePie } from "@nivo/pie"
 import { JSX, ClassAttributes, HTMLAttributes } from "react"
+import { DropdownMenu, DropdownMenuTrigger, DropdownMenuContent, DropdownMenuLabel, DropdownMenuSeparator, DropdownMenuItem } from "@/components/ui/dropdown-menu"
+import { Button } from "@/components/ui/button"
+import { ChevronDownIcon } from "lucide-react"
 
 export default function DashboardAdministrativo() {
   return (
@@ -38,6 +41,20 @@ export default function DashboardAdministrativo() {
             <Card>
               <CardHeader>
                 <CardTitle>Disponibilidad</CardTitle>
+                <div className="ml-auto">
+                  <DropdownMenu>
+                    <DropdownMenuTrigger asChild>
+                      <Button variant="outline" size="sm">
+                        Descargar
+                        <ChevronDownIcon className="ml-2 h-4 w-4" />
+                      </Button>
+                    </DropdownMenuTrigger>
+                    <DropdownMenuContent align="end" className="w-[200px]">
+                      <DropdownMenuItem>Reporte de Uso</DropdownMenuItem>
+                      <DropdownMenuItem>Análisis de Demanda y Utilización</DropdownMenuItem>
+                    </DropdownMenuContent>
+                  </DropdownMenu>
+                </div>
               </CardHeader>
               <CardContent>
                 <p>Aquí se mostrará la disponibilidad de las instalaciones.</p>

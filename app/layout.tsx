@@ -43,10 +43,7 @@ export default function Layout({ children } : { children: ReactNode }) {
               Instalaciones
             </Link>
             <Link href="#" className="hover:underline" prefetch={false}>
-              Sobre Nosotros
-            </Link>
-            <Link href="#" className="hover:underline" prefetch={false}>
-              Contacto
+              Usuarios
             </Link>
             <DropdownMenu>
               <DropdownMenuTrigger asChild>
