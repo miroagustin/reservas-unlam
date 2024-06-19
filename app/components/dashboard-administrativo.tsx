@@ -6,6 +6,7 @@
 'use client'
 import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/card"
 import { ResponsivePie } from "@nivo/pie"
+import { JSX, ClassAttributes, HTMLAttributes } from "react"
 
 export default function DashboardAdministrativo() {
   return (
@@ -56,7 +57,7 @@ export default function DashboardAdministrativo() {
   )
 }
 
-function PieChartDisp(props) {
+function PieChartDisp(props: JSX.IntrinsicAttributes & ClassAttributes<HTMLDivElement> & HTMLAttributes<HTMLDivElement>) {
   return (
     <div {...props}>
       <ResponsivePie
@@ -97,7 +98,7 @@ function PieChartDisp(props) {
     </div>
   )
 }
-function PieChartMant(props) {
+function PieChartMant(props: JSX.IntrinsicAttributes & ClassAttributes<HTMLDivElement> & HTMLAttributes<HTMLDivElement>) {
   return (
     <div {...props}>
       <ResponsivePie

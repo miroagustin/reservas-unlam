@@ -3,7 +3,6 @@
  * @see https://v0.dev/t/5WRuVn2aIYz
  * Documentation: https://v0.dev/docs#integrating-generated-code-into-your-nextjs-app
  */
-import Link from "next/link"
 import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/card"
 import { Label } from "@/components/ui/label"
 import { Select, SelectTrigger, SelectValue, SelectContent, SelectItem } from "@/components/ui/select"
@@ -30,7 +29,7 @@ export default function ReservarInstalacion() {
                 <div className="grid grid-cols-2 gap-4">
                   <div>
                     <Label htmlFor="facility">Instalación</Label>
-                    <Select id="facility">
+                    <Select>
                       <SelectTrigger>
                         <SelectValue placeholder="Selecciona una instalación" />
                       </SelectTrigger>
@@ -59,7 +58,7 @@ export default function ReservarInstalacion() {
                 <div className="grid grid-cols-2 gap-4">
                   <div>
                     <Label htmlFor="start-time">Hora de Inicio</Label>
-                    <Select id="start-time">
+                    <Select>
                       <SelectTrigger>
                         <SelectValue placeholder="Selecciona hora de inicio" />
                       </SelectTrigger>
@@ -79,7 +78,7 @@ export default function ReservarInstalacion() {
                   </div>
                   <div>
                     <Label htmlFor="end-time">Hora de Fin</Label>
-                    <Select id="end-time">
+                    <Select>
                       <SelectTrigger>
                         <SelectValue placeholder="Selecciona hora de fin" />
                       </SelectTrigger>
