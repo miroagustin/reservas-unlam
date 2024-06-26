@@ -50,8 +50,8 @@ export default function DashboardAdministrativo() {
                       </Button>
                     </DropdownMenuTrigger>
                     <DropdownMenuContent align="end" className="w-[200px]">
-                      <DropdownMenuItem>Reporte de Uso</DropdownMenuItem>
-                      <DropdownMenuItem>Análisis de Demanda y Utilización</DropdownMenuItem>
+                      <DropdownMenuItem as="a" href="https://github.com/tu_usuario/tu_repositorio/raw/main/files/data.xlsx" download>Reporte de Uso</DropdownMenuItem>
+                      <DropdownMenuItem as="a" href="https://github.com/tu_usuario/tu_repositorio/raw/main/files/data.xlsx" download>Análisis de Demanda y Utilización</DropdownMenuItem>
                     </DropdownMenuContent>
                   </DropdownMenu>
                 </div>
@@ -75,13 +75,15 @@ export default function DashboardAdministrativo() {
 }
 
 function PieChartDisp(props: JSX.IntrinsicAttributes & ClassAttributes<HTMLDivElement> & HTMLAttributes<HTMLDivElement>) {
+  const data = [
+    { id: "Disponibles", value: 40 },
+    { id: "Reservados", value: 150 },
+  ]
+  const total = data.reduce((sum, item) => sum + item.value, 0);
   return (
     <div {...props}>
       <ResponsivePie
-        data={[
-          { id: "Disponibles", value: 40 },
-          { id: "Reservados", value: 150 },
-        ]}
+        data={data}
         sortByValue
         margin={{ top: 10, right: 10, bottom: 10, left: 10 }}
         cornerRadius={0}
@@ -89,14 +91,15 @@ function PieChartDisp(props: JSX.IntrinsicAttributes & ClassAttributes<HTMLDivEl
         borderWidth={1}
         borderColor={"#ffffff"}
         enableArcLinkLabels={false}
-        arcLabel={(d) => `${d.id}`}
+        arcLabel={(d) => `${d.id} (${((d.value / total) * 100).toFixed(2)}%)`}
         arcLabelsTextColor={"#ffffff"}
         arcLabelsRadiusOffset={0.65}
+        arcLabelsSkipAngle={10} 
         colors={({ id }) => (id === "Disponibles" ? "#A5D6A7" : "#B0BEC5")} // Verde para "Disponibles" y rojo para "Reservados"
         theme={{
           labels: {
             text: {
-              fontSize: "18px",
+              fontSize: "14px",
             },
           },
           tooltip: {
@@ -116,14 +119,17 @@ function PieChartDisp(props: JSX.IntrinsicAttributes & ClassAttributes<HTMLDivEl
   )
 }
 function PieChartMant(props: JSX.IntrinsicAttributes & ClassAttributes<HTMLDivElement> & HTMLAttributes<HTMLDivElement>) {
+  const data = [
+    { id: "Preventivo", value: 50 },
+    { id: "Correctivo", value: 51 },
+    { id: "Al día", value: 120 },
+  ];
+  const total = data.reduce((sum, item) => sum + item.value, 0);
   return (
+
     <div {...props}>
       <ResponsivePie
-        data={[
-          { id: "Preventivo", value: 50 },
-          { id: "Correctivo", value: 51 },
-          { id: "Al día", value: 120 },
-        ]}
+        data={data}
         sortByValue
         margin={{ top: 10, right: 10, bottom: 10, left: 10 }}
         cornerRadius={0}
@@ -131,8 +137,9 @@ function PieChartMant(props: JSX.IntrinsicAttributes & ClassAttributes<HTMLDivEl
         borderWidth={1}
         borderColor={"#ffffff"}
         enableArcLinkLabels={false}
-        arcLabel={(d) => `${d.id}`}
+        arcLabel={(d) => `${d.id} (${((d.value / total) * 100).toFixed(2)}%)`}
         arcLabelsTextColor={"#ffffff"}
+        arcLabelsSkipAngle={10} 
         arcLabelsRadiusOffset={0.65}
         colors={({ id }) => {
           if (id === "Preventivo") return "#90CAF9";
@@ -143,7 +150,7 @@ function PieChartMant(props: JSX.IntrinsicAttributes & ClassAttributes<HTMLDivEl
         theme={{
           labels: {
             text: {
-              fontSize: "18px",
+              fontSize: "14px",
             },
           },
           tooltip: {

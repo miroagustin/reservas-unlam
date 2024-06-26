@@ -26,6 +26,9 @@ const libre_baskerville = Libre_Baskerville({
 export default function Layout({ children } : { children: ReactNode }) {
   return (
     <html lang="en">
+      <head>
+        <title>Reservas UNLAM</title>
+      </head>
       <body className={caudex.variable + ' ' + libre_baskerville.variable}>
         <div>
         <header className="bg-primary text-primary-foreground py-4 px-6">
