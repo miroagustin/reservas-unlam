@@ -5,6 +5,7 @@
  */
 import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/card"
 import { Label } from "@/components/ui/label"
+import { Input } from "@/components/ui/input";
 import { Select, SelectTrigger, SelectValue, SelectContent, SelectItem } from "@/components/ui/select"
 import { Popover, PopoverTrigger, PopoverContent } from "@/components/ui/popover"
 import { Button } from "@/components/ui/button"
@@ -97,6 +98,10 @@ export default function ReservarInstalacion() {
                     </Select>
                   </div>
                 </div>
+                <div>
+                <Label htmlFor="legajo">Legajo</Label>
+                <Input id="legajo" type="text" placeholder="Ingresa tu legajo" />
+              </div>
                 <Button size="lg" className="w-full">
                   Reservar
                 </Button>
